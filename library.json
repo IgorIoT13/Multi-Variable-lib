@@ -1,0 +1,14 @@
+{
+  "name": "MultiVariable",
+  "keywords": "variable, componet",
+  "description": "Lib to more easy use variable in another libs",
+  "repository":
+  {
+    "type": "git",
+    "url": "https://github.com/IgorIoT13/Multi-Variable-lib"
+  },
+  "frameworks": "arduino",
+  "platforms":
+  [
+  ]
+}
