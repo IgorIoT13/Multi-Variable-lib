@@ -96,15 +96,15 @@ typedef struct MultiVariable{
 
     CPPCODE(
         STATUS_t (*setBool)     (MultiVariable* multiVar, bool val);
-        STATUS_t (*setString)   (MultiVariable* multiVar, String val);
+        //Ptr
+        STATUS_t (*setBool_ptr)     (MultiVariable* multiVar, bool* val);
+        STATUS_t (*setString_ptr)   (MultiVariable* multiVar, String* val);
     )
 
-    //Ptr
     STATUS_t (*setInteger_ptr)  (MultiVariable* multiVar, int* val);
     STATUS_t (*setUinteger_ptr) (MultiVariable* multiVar, unsigned int* val);
     STATUS_t (*setFloat_ptr)    (MultiVariable* multiVar, float* val);
-    STATUS_t (*setBool_ptr)     (MultiVariable* multiVar, bool* val);
-    STATUS_t (*setString_ptr)   (MultiVariable* multiVar, String* val);
+
     
     //__________________________________________________________________
     //Getter
@@ -178,14 +178,15 @@ STATUS_t setNull     (MultiVariable* multiVar);
     //Cpp
 CPPCODE(
     STATUS_t setBool     (MultiVariable* multiVar, bool val);
-    STATUS_t setString   (MultiVariable* multiVar, String val);
-)
     //Ptr
+    STATUS_t setBool_ptr     (MultiVariable* multiVar, bool* val);
+    STATUS_t setString_ptr   (MultiVariable* multiVar, String* val);
+)
+    
     STATUS_t setInteger_ptr  (MultiVariable* multiVar, int* val);
     STATUS_t setUinteger_ptr (MultiVariable* multiVar, unsigned int* val);
     STATUS_t setFloat_ptr    (MultiVariable* multiVar, float* val);
-    STATUS_t setBool_ptr     (MultiVariable* multiVar, bool* val);
-    STATUS_t setString_ptr   (MultiVariable* multiVar, String* val);
+
 
     //__________________________________________________________________
     //Getter functions

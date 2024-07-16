@@ -17,7 +17,6 @@ MultiVariable* createNewVariable (){
         obj->setChar = setChar;
         obj->setCharArr = setCharArr;
         obj->setBool = setBool;
-        obj->setString = setString;
         obj->setNull = setNull;
 
         obj->setInteger_ptr = setInteger_ptr;
@@ -112,16 +111,6 @@ STATUS_t setBool     (MultiVariable* multiVar, bool val){
     }
 }
 
-STATUS_t setString   (MultiVariable* multiVar, String val){
-    if(multiVar){
-        multiVar->type = MultiVariableType::STRING;
-        multiVar->valuer.stringVal = val;
-
-        return STATUS_OK;
-    }else{
-        return NOT_FOUND;
-    }
-}
 
 STATUS_t setNull     (MultiVariable* multiVar){
     if(multiVar){
@@ -183,18 +172,24 @@ MultiVariableType getType(MultiVariable* multiVar){
 int getInteger(MultiVariable* multiVar){
     if(multiVar && multiVar->type == MultiVariableType::INTEGER){
         return multiVar->valuer.intVal;
+    }else if(multiVar && multiVar->type == MultiVariableType::INTEGER_PTR){
+        return *(multiVar->valuer.intVal_Ptr);
     }
     return 0;
 }
 unsigned int getUInteger(MultiVariable* multiVar){
     if(multiVar && multiVar->type == MultiVariableType::UINTEGER){
         return multiVar->valuer.intValU;
+    }else if(multiVar && multiVar->type == MultiVariableType::UINTEGER_PTR){
+        return *(multiVar->valuer.intValU_Ptr);
     }
     return 0;
 }
 float getFloat(MultiVariable* multiVar){
     if(multiVar && multiVar->type == MultiVariableType::FLOAT){
         return multiVar->valuer.floatVal;
+    }else if(multiVar && multiVar->type == MultiVariableType::FLOAT_PTR){
+        return *(multiVar->valuer.floatVal_Ptr);
     }
     return 0;
 }
@@ -214,12 +209,16 @@ char* getCharArr(MultiVariable* multiVar){
 bool getBool(MultiVariable* multiVar){
     if(multiVar && multiVar->type == MultiVariableType::BOOL){
         return multiVar->valuer.boolVal;
+    }else if(multiVar && multiVar->type == MultiVariableType::BOOL_PTR){
+        return *(multiVar->valuer.boolVal_Ptr);
     }
     return false;
 }
 String getString(MultiVariable* multiVar){
         if(multiVar && multiVar->type == MultiVariableType::STRING){
         return multiVar->valuer.stringVal;
+    }else if(multiVar && multiVar->type == MultiVariableType::STRING_PTR){
+        return *(multiVar->valuer.stringVal_Ptr);
     }
     return "";
 }
