@@ -1,5 +1,24 @@
-#pragma once
+#ifndef MULTI_VARIABLE_H
+#define MULTI_VARIABLE_H
 
-#include <Arduino.h>
 
-#include "core/MultiVariable.h"
+#include "core/Setting.h"
+
+
+#ifdef CPP_CODE
+    #include <Arduino.h>
+#else
+    #include <stdio.h>
+#endif
+
+
+/**
+ * @brief Union for all variable
+ * 
+ * 
+ */
+typedef union MV_UNION{
+
+}MV_UNION;
+
+#endif
